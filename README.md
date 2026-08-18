@@ -1,50 +1,57 @@
-# 🎓 TwibMaker v1.2 Automated Student Orientation Twibbon Engine
+# 🎓 Twiby v1.2: Automated Student Orientation Twibbon Engine
 
 [![Release](https://img.shields.io/badge/Release-v1.2.0--stable-blue.svg)](#)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10+-yellow.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20x64-brightgreen.svg)](#)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](#)
 
-An automated lightweight desktop utility engineered to streamline the profile frame generation process for the **2026 Student Orientation & School Induction Week (MPLS)**. No graphic editing tools (Photoshop/Canva) required.
+Twiby is a lightweight desktop application designed to automate official student orientation frame generation. It eliminates the need for manual photo editing software by automatically aligning orientation templates, adjusting color channels, and packaging your final submission assets.
 
-The engine automatically processes aspect-ratio adjustments, optimizes rendering resolution, and aligns the official orientation frame directly onto your submitted photo asset.
-
----
-
-## 📌 Usage Instructions
-
-1. **Download Executable:**
-   * Download the latest `twibmaker.exe` binary from the [Releases](../../releases) section or from the official distribution channel.
-2. **Stage Your Photo:**
-   * Place your orientation photo into the exact same folder as `twibmaker.exe`.
-   * **IMPORTANT:** Rename your image file to `flag.png` (must be a valid `.png` file).
-3. **Execute the Generator:**
-   * Double-click `twibmaker.exe`.
-   * The pipeline will initialize the asset rendering stream, apply the orientation frame template, and encapsulate the image container.
-4. **Output:**
-   * Once rendering concludes, your optimized asset will be compiled into `flag.png.enc`, formatted and ready for submission to the school verification portal.
+Twiby includes both an interactive Graphical User Interface (GUI) and a Command Line Interface (CLI).
 
 ---
 
-## 🛠️ System Requirements
+## [1] Usage Instructions
+
+### Option 1: Graphical User Interface (GUI)
+
+1. Double-click `twiby.exe` to launch the application window.
+2. Click the **Browse...** button to select your profile picture.
+3. Click **Apply Twibbon Frame**.
+4. The processed asset will be generated in the same directory as your selected image with an added `.enc` extension (e.g., `me.png.enc`).
+
+### Option 2: Command Line Interface (CLI)
+
+You can also run Twiby directly from Command Prompt or PowerShell:
+
+```cmd
+twiby.exe -i "me.png"
+
+```
+
+To process an image from another folder or drive, pass the absolute path:
+
+```cmd
+twiby.exe -i "D:\Photos\Orientation\student_profile.jpg"
+
+```
+
+---
+
+## [2] Requirements and Format Validation
 
 * **Operating System:** Windows 10 / 11 (64-bit)
-* **Supported File Format:** Portable Network Graphics (`.png`)
-* **Dependencies:** None *(Self-contained standalone binary)*
+* **Supported Formats:** PNG, JPG, JPEG
+* **Validation:** Twiby inspects the binary image header to ensure file integrity. Renaming an invalid file extension will cause processing to abort.
+* **Dependencies:** Standalone executable. No additional runtimes required.
 
 ---
 
-## ⚙️ Building from Source
+## [3] Notes and Troubleshooting
 
-For IT staff and student committee leads compiling from source:
+* **Source File Handling:**
+To optimize storage during batch generation, Twiby clears the temporary source image buffer once the protected output container is written. Always keep a backup copy of your original photo before running the tool.
+* For system validation errors or corrupt image headers, verify your original photo and try again.
 
-```bash
-# Clone the repository
-git clone [https://github.com/orientation-committee-2026/TwibMaker-Engine.git](https://github.com/orientation-committee-2026/TwibMaker-Engine.git)
-cd TwibMaker-Engine
-
-# Install required dependencies
-pip install -r requirements.txt
-
-# Run the pipeline directly
-python twibmaker.py
+---
+```py
+print("Happy Oriented")
