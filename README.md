@@ -1,4 +1,4 @@
-# 🎓 TwibMaker v1.2 — Automated Student Orientation Twibbon Engine
+# 🎓 TwibMaker v1.2 Automated Student Orientation Twibbon Engine
 
 [![Release](https://img.shields.io/badge/Release-v1.2.0--stable-blue.svg)](#)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-yellow.svg)](#)
